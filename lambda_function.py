@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 # Define the S3 bucket name
-bucket_name = 'your-bucket-name'
+bucket_name = 'binance_data'
 
 # Define the Binance API endpoint
 binance_api_url = os.environ['BINANCE_API_URL']
