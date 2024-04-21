@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "eu-west-2" # replace with your region
+    region = "us-west-2" # replace with your region
 }
 
 resource "aws_iam_role" "lambda_role" {
@@ -28,9 +28,7 @@ resource "aws_lambda_function" "binance_data_loader" {
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.8"
   role          = aws_iam_role.lambda_role.arn
-
   filename = "lambda_function.zip"
-
   source_code_hash = filebase64sha256("lambda_function.zip")
 
   environment {
