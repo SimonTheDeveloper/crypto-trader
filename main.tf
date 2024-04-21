@@ -24,11 +24,20 @@ resource "aws_iam_role_policy_attachment" "lambda_s3_full_access" {
 }
 
 resource "aws_lambda_function" "binance_data_loader" {
-    filename      = "lambda_function.zip" # replace with your zip file name
-    function_name = "binance_data_loader"
-    role          = aws_iam_role.lambda_role.arn
-    handler       = "lambda_function.lambda_handler"
-    runtime       = "python3.8"
+  function_name = "binance_data_loader"
+  handler       = "lambda_function.lambda_handler"
+  runtime       = "python3.8"
+  role          = aws_iam_role.lambda_role.arn
+
+  filename = "lambda_function.zip"
+
+  source_code_hash = filebase64sha256("lambda_function.zip")
+
+  environment {
+    variables = {
+      BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price"
+    }
+  }
 }
 
 environment {
