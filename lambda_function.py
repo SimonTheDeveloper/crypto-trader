@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 # Define the S3 bucket name
-bucket_name = 'binance-data-kamia'
+bucket_name = 'binance-data-kamia-consulting'
 
 # Define the Binance API endpoint
 binance_api_url = os.environ['BINANCE_API_URL']

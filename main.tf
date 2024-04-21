@@ -39,7 +39,7 @@ resource "aws_lambda_function" "binance_data_loader" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-    bucket = "binance-data-kamia"
+    bucket = "binance-data-kamia-consulting-consulting"
 
     # ...
 }
