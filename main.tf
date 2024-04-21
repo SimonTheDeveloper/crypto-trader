@@ -40,11 +40,13 @@ resource "aws_lambda_function" "binance_data_loader" {
   }
 }
 
-
 resource "aws_s3_bucket" "bucket" {
     bucket = "binance_data" # replace with your bucket name
+}
+
+resource "aws_s3_bucket_acl" "bucket_acl" {
+    bucket = aws_s3_bucket.bucket.id
     acl    = "private"
 }
 
 
-}
