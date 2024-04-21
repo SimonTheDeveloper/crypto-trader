@@ -40,11 +40,6 @@ resource "aws_lambda_function" "binance_data_loader" {
   }
 }
 
-environment {
-    variables = {
-        BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price"
-    }
-}
 
 resource "aws_s3_bucket" "bucket" {
     bucket = "binance_data" # replace with your bucket name
